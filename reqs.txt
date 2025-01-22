@@ -1,0 +1,7 @@
+fastapi
+uvicorn
+jinja2
+gensim
+scipy
+numpy
+scikit-learn
