@@ -5,3 +5,4 @@ gensim
 scipy
 numpy
 scikit-learn
+python-multipart
