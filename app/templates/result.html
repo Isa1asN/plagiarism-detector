@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style.css">
+    <script src="/static/script.js" defer></script>
+    <title>Plagiarism Results</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Similarity Analysis Results</h1>
+        <div class="document-container">
+            <div class="document-column">
+                <h2>First Document</h2>
+                <div class="document" id="doc1">{{ highlighted_doc1|safe }}</div>
+            </div>
+            <div class="document-column">
+                <h2>Second Document</h2>
+                <div class="document" id="doc2">{{ highlighted_doc2|safe }}</div>
+            </div>
+        </div>
+        <div class="button-container">
+            <button onclick="history.back()" class="back-button">Back to Comparison</button>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,188 @@
+body {
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    font-family: Arial, sans-serif;
+    color: #333;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 98%;
+    margin: 10px auto;
+    padding: 15px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    height: 97vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.jumbotron {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 10px;
+}
+
+h1 {
+    text-align: center;
+    color: #2c3e50;
+    margin: 5px 0 15px 0;
+    font-size: 1.8em;
+    padding: 0;
+}
+
+.input-container, .document-container {
+    display: flex;
+    gap: 20px;
+    flex: 1;
+    min-height: 0;
+    margin-bottom: 15px;
+}
+
+.input-column, .document-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #e9ecef;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #2c3e50;
+    font-size: 1em;
+}
+
+textarea {
+    flex: 1;
+    width: 100%;
+    padding: 15px;
+    font-size: 16px;
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+    resize: none;
+    background: #fff;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+}
+
+textarea:focus {
+    outline: none;
+    border-color: #80bdff;
+    box-shadow: 0 0 0 3px rgba(0,123,255,0.25);
+}
+
+.document {
+    flex: 1;
+    overflow-y: auto;
+    padding: 15px;
+    background: #fff;
+    border-radius: 6px;
+    border: 1px solid #dee2e6;
+    white-space: pre-wrap;
+    line-height: 1.6;
+    font-size: 16px;
+}
+
+.button-container {
+    text-align: center;
+    margin-top: 10px;
+    padding: 5px;
+}
+
+button, .back-button {
+    padding: 8px 25px;
+    background: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background: #0056b3;
+}
+
+.back-button {
+    background: #6c757d;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.back-button:hover {
+    background: #5a6268;
+    text-decoration: none;
+    color: #fff;
+}
+
+.document-column h2 {
+    margin: 0 0 10px 0;
+    color: #2c3e50;
+    font-size: 1.1em;
+}
+
+.text-highlight-red-hover {
+    background: #ff726f;
+    border-radius: 5px;
+}
+
+.text-highlight-red {
+    background: #ffe6e6;
+    border-radius: 5px;
+}
+
+.text-highlight-blue-hover {
+    background: #80f2ff;
+    border-radius: 5px;
+}
+
+.text-highlight-blue {
+    background: #e6fdff;
+    border-radius: 5px;
+}
+
+.text-highlight-green-hover {
+    background: #ceff59;
+    border-radius: 5px;
+}
+
+.text-highlight-green {
+    background: #eeffcc;
+    border-radius: 5px;
+}
+
+.hovertext {
+    position: relative;
+}
+
+.hovertext:before {
+    content: attr(data-hover);
+    visibility: hidden;
+    opacity: 0;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    padding: 3px;
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    top: 110%;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.hovertext:hover:before {
+    opacity: 1;
+    visibility: visible;
+}

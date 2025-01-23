@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style.css">
+    <title>Plagiarism Detection</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Plagiarism Detection</h1>
+        <form action="/compare" method="post" style="flex: 1; display: flex; flex-direction: column;">
+            <div class="input-container">
+                <div class="input-column">
+                    <label for="doc1">First Document</label>
+                    <textarea id="doc1" name="doc1" placeholder="Enter or paste the first document here..."></textarea>
+                </div>
+                <div class="input-column">
+                    <label for="doc2">Second Document</label>
+                    <textarea id="doc2" name="doc2" placeholder="Enter or paste the second document here..."></textarea>
+                </div>
+            </div>
+            <div class="button-container">
+                <button type="submit">Compare Documents</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
