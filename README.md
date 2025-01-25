@@ -1,8 +1,8 @@
 # Plagiarism Detection for Amharic text
 
-![screenshot](./imgs/scrsht.png)
-
 ![screenshot](./imgs/scrsht2.png)
+
+![screenshot](./imgs/scrsht.png)
 
 This project implements a plagiarism detection system for the Amharic language using the **Doc2Vec** model. It provides a pipeline for data preprocessing, model training, and similarity computation, which serves as the foundation for a FastAPI server.
 
@@ -50,7 +50,10 @@ already!
    pip install -r reqs.txt
    ```
 
-4. Run the server:
+4. Download the model files zip file, unzip it and put them in 'models' folder at the root of the project.
+   You can download it [here.](https://drive.google.com/file/d/1R9ULenBDBslRwdpsMbfdsiBLobcfxYIO/view?usp=sharing)
+
+5. Run the server:
 
    ```bash
    cd app
