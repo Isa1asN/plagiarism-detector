@@ -9,4 +9,4 @@ COPY . .
 
 EXPOSE 8008
 
-CMD ["python", "-m", "scripts.download_models", "&&", "python", "-m", "api.main"]
+CMD ["bash", "-c", "python -m scripts.download_models && python -m api.main"]
