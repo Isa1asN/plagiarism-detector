@@ -1,6 +1,6 @@
 import os
 import gdown
-from unrar import rarfile
+import subprocess
 
 def download_file_from_google_drive(file_url, destination):
     """
@@ -11,12 +11,11 @@ def download_file_from_google_drive(file_url, destination):
 
 def extract_rar_file(rar_path, extract_to):
     """
-    Extracts a .rar file to the specified directory using the unrar library.
+    Extracts a .rar file using the p7zip utility.
     """
-    with rarfile.RarFile(rar_path) as rf:
-        rf.extractall(extract_to)
+    subprocess.run(["7z", "x", rar_path, f"-o{extract_to}"], check=True)
     print(f"Extracted .rar file to {extract_to}")
-
+    
 if __name__ == "__main__":
     file_url = "https://drive.google.com/uc?export=download&id=1R9ULenBDBslRwdpsMbfdsiBLobcfxYIO"
     
