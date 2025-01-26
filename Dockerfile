@@ -7,8 +7,6 @@ RUN pip install --no-cache-dir -r reqs.txt
 
 COPY . .
 
-RUN python3 scripts/download_models.py
-
 EXPOSE 8008
 
-CMD ["python", "-m", "api.main"]
+CMD ["python", "-m", "scripts.download_models", "&&", "python", "-m", "api.main"]
