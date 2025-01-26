@@ -5,8 +5,7 @@ WORKDIR /app
 COPY reqs.txt .
 RUN pip install --no-cache-dir -r reqs.txt
 
-COPY api/ ./api/
-COPY scripts/ ./scripts/
+COPY . .
 
 RUN python3 scripts/download_models.py
 
