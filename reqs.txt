@@ -2,7 +2,10 @@ fastapi
 uvicorn
 jinja2
 gensim
+requests
 scipy
 numpy
 scikit-learn
+gdown
+unrar
 python-multipart
