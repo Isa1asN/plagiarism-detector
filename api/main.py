@@ -2,19 +2,22 @@ from fastapi import FastAPI, Form, Request
 from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
-from model_loader import load_model, load_stopwords
-from pre_process import preprocess, preprocess_document
-from similarity import get_similarity_with_indices
-from utils import clip_with_context
+from api.model_loader import load_model, load_stopwords
+from api.pre_process import preprocess, preprocess_document
+from api.similarity import get_similarity_with_indices
+from api.utils import clip_with_context
 from html import escape
+from configs.app_config import AppConfig
 
-model = load_model("../models/doc2vec_am.bin")
-stopwords = load_stopwords("../amstopwords.txt")
+
+config = AppConfig.get_config_instance()
+model = load_model(str(config.MODEL_PATH / "doc2vec_am.bin"))
+stopwords = load_stopwords(str(config.PROJECT_ROOT / "amstopwords.txt"))
 
 app = FastAPI()
 
 templates = Jinja2Templates(directory="templates")
-app.mount("/static", StaticFiles(directory="static"), name="static")
+app.mount("/static", StaticFiles(directory=str(config.STATIC_PATH)), name="static")
 
 
 @app.get("/", response_class=HTMLResponse)
