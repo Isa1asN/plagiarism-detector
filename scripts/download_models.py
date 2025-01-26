@@ -11,10 +11,15 @@ def download_file_from_google_drive(file_url, destination):
 
 def extract_rar_file(rar_path, extract_to):
     """
-    Extracts a .rar file using the p7zip utility.
+    Extracts a .rar file using the unrar utility.
     """
-    subprocess.run(["7z", "x", rar_path, f"-o{extract_to}"], check=True)
-    print(f"Extracted .rar file to {extract_to}")
+    os.makedirs(extract_to, exist_ok=True)
+    try:
+        subprocess.run(["unrar", "x", "-y", rar_path, extract_to], check=True)
+        print(f"Extracted .rar file to {extract_to}")
+    except subprocess.CalledProcessError as e:
+        print(f"Error during extraction: {e}")
+        raise
     
 if __name__ == "__main__":
     file_url = "https://drive.google.com/uc?export=download&id=1R9ULenBDBslRwdpsMbfdsiBLobcfxYIO"
@@ -25,6 +30,7 @@ if __name__ == "__main__":
     os.makedirs(extract_to, exist_ok=True)
 
     download_file_from_google_drive(file_url, destination)
+
     extract_rar_file(destination, extract_to)
 
     os.remove(destination)

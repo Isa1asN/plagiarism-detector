@@ -3,7 +3,10 @@ FROM python:3.11-slim
 WORKDIR /app
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    p7zip-full \
+    software-properties-common \
+    && apt-add-repository contrib \
+    && apt-get update \
+    && apt-get install -y unrar \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
