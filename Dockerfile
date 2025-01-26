@@ -10,8 +10,6 @@ COPY scripts/ ./scripts/
 
 RUN python3 scripts/download_models.py
 
-COPY models/ ./models/
-
 EXPOSE 8008
 
 WORKDIR /app/api
