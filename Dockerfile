@@ -12,6 +12,4 @@ RUN python3 scripts/download_models.py
 
 EXPOSE 8008
 
-WORKDIR /app/api
-
-CMD ["python", "-m", "main"]
+CMD ["python", "-m", "api.main"]
