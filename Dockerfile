@@ -2,14 +2,6 @@ FROM python:3.11-slim
 
 WORKDIR /app
 
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    software-properties-common \
-    && apt-add-repository contrib \
-    && apt-get update \
-    && apt-get install -y unrar \
-    && apt-get clean \
-    && rm -rf /var/lib/apt/lists/*
-
 COPY reqs.txt .
 RUN pip install --no-cache-dir -r reqs.txt
 

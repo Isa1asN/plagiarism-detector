@@ -1,6 +1,6 @@
 import os
 import gdown
-import subprocess
+import zipfile
 
 def download_file_from_google_drive(file_url, destination):
     """
@@ -9,28 +9,24 @@ def download_file_from_google_drive(file_url, destination):
     gdown.download(file_url, destination, quiet=False)
     print(f"Downloaded file to {destination}")
 
-def extract_rar_file(rar_path, extract_to):
+def extract_zip_file(zip_path, extract_to):
     """
-    Extracts a .rar file using the unrar utility.
+    Extracts a .zip file using Python's zipfile module.
     """
-    os.makedirs(extract_to, exist_ok=True)
-    try:
-        subprocess.run(["unrar", "x", "-y", rar_path, extract_to], check=True)
-        print(f"Extracted .rar file to {extract_to}")
-    except subprocess.CalledProcessError as e:
-        print(f"Error during extraction: {e}")
-        raise
-    
+    with zipfile.ZipFile(zip_path, 'r') as zip_ref:
+        zip_ref.extractall(extract_to)
+    print(f"Extracted .zip file to {extract_to}")
+
 if __name__ == "__main__":
-    file_url = "https://drive.google.com/uc?export=download&id=1R9ULenBDBslRwdpsMbfdsiBLobcfxYIO"
-    
-    destination = "./model_files.rar"
+    file_url = "https://drive.google.com/uc?export=download&id=1MZFEaZAdICsT0k4CAX4ViqDq71hTXJZq"
+    destination = "./model_files.zip"
     extract_to = "./models/"
 
     os.makedirs(extract_to, exist_ok=True)
 
     download_file_from_google_drive(file_url, destination)
 
-    extract_rar_file(destination, extract_to)
+    extract_zip_file(destination, extract_to)
 
     os.remove(destination)
+
